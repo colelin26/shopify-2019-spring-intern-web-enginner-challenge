@@ -72,18 +72,19 @@ p {
 }
 
 .item-title {
-  width: 50%;
+  width: 40%;
   display: flex;
   flex: 1;
-  flex-basis: 50%;
+  justify-content: flex-start;
+  flex-basis: 40%;
   margin: auto;
 }
 
 .item-description {
-  width: 50%;
+  width: 60%;
   display: flex;
   flex: 1;
-  flex-basis: 50%;
+  flex-basis: 60%;
   margin: auto;
 }
 
@@ -102,4 +103,14 @@ button {
   width: 100%;
   display: flex;
   color: green;
+}
+
+.favouriteIcon {
+  color: green;
+  margin-right: 15px;
+}
+
+.normalIcon {
+  color: grey;
+  margin-right: 15px;
 }

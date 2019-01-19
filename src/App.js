@@ -28,10 +28,12 @@ class App extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleAddFavourite = this.handleAddFavourite.bind(this);
+    this.handleDeleteFavourite = this.handleDeleteFavourite.bind(this);
   }
 
   handleChange(event) {
     this.setState({ keyword: event.target.value });
+    if (event.target.value === "") this.setState({ searchResult: [] });
   }
 
   handleSubmit(event) {
@@ -56,6 +58,15 @@ class App extends Component {
     if (!this.state.favourites.includes(item))
       this.setState({
         favourites: this.state.favourites.concat(item)
+      });
+  }
+
+  handleDeleteFavourite(item) {
+    if (this.state.favourites.includes(item))
+      this.setState({
+        favourites: this.state.favourites.filter(
+          favourite => favourite.id !== item.id
+        )
       });
   }
 
@@ -88,9 +99,21 @@ class App extends Component {
           {searchResult.map(item => (
             <div className="item">
               <div className="item-title">
-                <div onClick={() => this.handleAddFavourite(item)}>
-                  <FontAwesomeIcon icon={faStar} />
-                </div>
+                {favourites.includes(item) ? (
+                  <div
+                    className="favouriteIcon"
+                    onClick={() => this.handleDeleteFavourite(item)}
+                  >
+                    <FontAwesomeIcon icon={faStar} />
+                  </div>
+                ) : (
+                  <div
+                    className="normalIcon"
+                    onClick={() => this.handleAddFavourite(item)}
+                  >
+                    <FontAwesomeIcon icon={faStar} />
+                  </div>
+                )}
                 {ReactHtmlParser(decode(item.title))}
               </div>
               <div className="item-description">
@@ -106,6 +129,12 @@ class App extends Component {
           {favourites.map(item => (
             <div className="item">
               <div className="item-title">
+                <div
+                  className="favouriteIcon"
+                  onClick={() => this.handleDeleteFavourite(item)}
+                >
+                  <FontAwesomeIcon icon={faStar} />
+                </div>
                 {ReactHtmlParser(decode(item.title))}
               </div>
               <div className="item-description">
