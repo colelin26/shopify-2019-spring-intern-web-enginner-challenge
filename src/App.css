@@ -1,32 +1,105 @@
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-}
-
-.App-header {
-  background-color: #282c34;
+  background-color: white;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  justify-content: flex-start;
+  font-size: calc(10px + 3.5vmin);
+  color: black;
+}
+
+
+.App-header {
+  background-image: linear-gradient(to right, #1D5A93, #219063);
+  display: flex;
   color: white;
+  width: 100%;
+  flex-basis: 15vh;
+  justify-content: center;
+  text-align: center;
 }
 
-.App-link {
-  color: #61dafb;
+p {
+  margin: auto;
+  font-weight: bold;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.searchWrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 0.2em 0;
+  flex-basis: 10vh;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.searchWrapper * {
+  box-sizing: border-box;
+}
+
+.searchBar {
+  /* flex-basis: 90%;
+
+  flex: 1 1 auto;
+  line-height: 10em;
+  height: 100%; */
+  border-radius: 5px;
+  padding: 1em;
+  width: 95%;
+  height: 7vh;
+  margin: 1em 0em;
+  border: 1px grey solid;
+  box-sizing: border-box;
+  font-size: 0.5em;
+}
+
+.items {
+  display: flex;
+  flex-direction: column;
+  font-size: 16px;
+  width: 100%
+}
+
+.item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  box-sizing: border-box;
+  padding: 1em;
+  width: 100%;
+}
+
+.item-title {
+  width: 50%;
+  display: flex;
+  flex: 1;
+  flex-basis: 50%;
+  margin: auto;
+}
+
+.item-description {
+  width: 50%;
+  display: flex;
+  flex: 1;
+  flex-basis: 50%;
+  margin: auto;
+}
+
+button {
+  background-color: #36a77a;
+  border-radius: 5px;
+  margin: 0.5em 0;
+  height: 1.1em;
+  width: 1.1em;
+  color: white;
+  padding: 2px;
+  font-size: 1.2em;
+}
+
+.typography {
+  width: 100%;
+  display: flex;
+  color: green;
 }
