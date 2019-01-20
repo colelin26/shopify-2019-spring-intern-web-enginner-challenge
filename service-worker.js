@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/shopify-2019-spring-intern-web-enginnering-challenge/precache-manifest.33b4b606720e1b0e72a93ef0c015150c.js"
+  "/shopify-2019-spring-intern-web-enginnering-challenge/precache-manifest.8fe5c1ab55facbc2153e7c06ff4271df.js"
 );
 
 workbox.clientsClaim();
