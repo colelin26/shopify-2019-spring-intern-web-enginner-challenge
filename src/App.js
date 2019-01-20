@@ -79,13 +79,12 @@ class App extends Component {
     const { keyword, favourites, searchResult } = this.state;
     return (
       <div className="App">
-        <header className="App-header">
+        <div className="spacer" />
+        <header className="appHeader">
           <p>Toronto Waste Lookup</p>
         </header>
         <form onSubmit={this.handleSubmit} className="searchWrapper">
           <input
-            type="search"
-            name="search"
             value={keyword}
             onChange={this.handleChange}
             placeholder="Keywords..."
@@ -98,7 +97,7 @@ class App extends Component {
         <div className="items">
           {searchResult.map(item => (
             <div className="item">
-              <div className="item-title">
+              <div className="itemTitle">
                 {favourites.includes(item) ? (
                   <div
                     className="favouriteIcon"
@@ -116,33 +115,37 @@ class App extends Component {
                 )}
                 {ReactHtmlParser(decode(item.title))}
               </div>
-              <div className="item-description">
+              <div className="itemDescription">
                 {ReactHtmlParser(decode(item.body))}
               </div>
             </div>
           ))}
         </div>
-        <div className="typography">
-          {favourites.length > 0 && <header>Favourites</header>}
-        </div>
-        <div className="items">
-          {favourites.map(item => (
-            <div className="item">
-              <div className="item-title">
-                <div
-                  className="favouriteIcon"
-                  onClick={() => this.handleDeleteFavourite(item)}
-                >
-                  <FontAwesomeIcon icon={faStar} />
+        {favourites.length > 0 && (
+          <div className="favouriteContainer">
+            <div className="typography">
+              <header>Favourites</header>
+            </div>
+            <div className="items">
+              {favourites.map(item => (
+                <div className="item">
+                  <div className="itemTitle">
+                    <div
+                      className="favouriteIcon"
+                      onClick={() => this.handleDeleteFavourite(item)}
+                    >
+                      <FontAwesomeIcon icon={faStar} />
+                    </div>
+                    {ReactHtmlParser(decode(item.title))}
+                  </div>
+                  <div className="itemDescription">
+                    {ReactHtmlParser(decode(item.body))}
+                  </div>
                 </div>
-                {ReactHtmlParser(decode(item.title))}
-              </div>
-              <div className="item-description">
-                {ReactHtmlParser(decode(item.body))}
-              </div>
+              ))}
             </div>
-          ))}
-        </div>
+          </div>
+        )}
       </div>
     );
   }
