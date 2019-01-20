@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/shopify-2019-spring-intern-web-enginnering-challenge/precache-manifest.8fe5c1ab55facbc2153e7c06ff4271df.js"
+  "/shopify-2019-spring-intern-web-enginner-challenge/precache-manifest.63c7dc7863d09439d28a46b08cb19bee.js"
 );
 
 workbox.clientsClaim();
@@ -28,7 +28,7 @@ self.__precacheManifest = [].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-workbox.routing.registerNavigationRoute("/shopify-2019-spring-intern-web-enginnering-challenge/index.html", {
+workbox.routing.registerNavigationRoute("/shopify-2019-spring-intern-web-enginner-challenge/index.html", {
   
   blacklist: [/^\/_/,/\/[^\/]+\.[^\/]+$/],
 });
