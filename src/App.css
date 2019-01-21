@@ -9,11 +9,6 @@
   color: black;
 }
 
-.spacer {
-  flex-basis: 2vh;
-  background-color: white;
-}
-
 .appHeader {
   background-image: linear-gradient(to right, #1D5A93, #219063);
   display: flex;

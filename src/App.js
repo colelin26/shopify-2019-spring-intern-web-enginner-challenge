@@ -66,8 +66,6 @@ class App extends Component {
     const { keyword, favourites, searchResult } = this.state;
     return (
       <div className="App">
-        <div className="spacer" />
-
         <header className="appHeader">
           <p>Toronto Waste Lookup</p>
         </header>
