@@ -20,6 +20,7 @@ class App extends Component {
       ReactHtmlParserOptions: {
         decodeEntities: true,
         transform: function(node, index) {
+          console.log(node);
           if (node.attribs && node.attribs.style !== undefined) {
             node.attribs.style = undefined;
           }
@@ -78,7 +79,6 @@ class App extends Component {
       ReactHtmlParserOptions
     } = this.state;
 
-    // this.state.searchResult.forEach(item => console.log(decode(item.body)));
     return (
       <div className="App">
         <header className="appHeader">
