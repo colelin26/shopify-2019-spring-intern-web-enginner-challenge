@@ -1,16 +1,12 @@
 import React, { Component } from "react";
-
-import "./App.css";
-
+import decode from "decode-html";
+import request from "superagent";
 import ReactHtmlParser from "react-html-parser";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 
-const decode = require("decode-html");
-const request = require("superagent");
-const JSON_URL =
-  "https://secure.toronto.ca/cc_sr_v1/data/swm_waste_wizard_APR?limit=2000";
+import "./App.css";
 
 class App extends Component {
   constructor(props) {
@@ -19,12 +15,19 @@ class App extends Component {
       keyword: "",
       data: [],
       searchResult: [],
-      favourites: []
+      favourites: [],
+      jsonURL:
+        "https://secure.toronto.ca/cc_sr_v1/data/swm_waste_wizard_APR?limit=1000"
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleAddFavourite = this.handleAddFavourite.bind(this);
     this.handleDeleteFavourite = this.handleDeleteFavourite.bind(this);
+  }
+
+  async componentDidMount() {
+    const res = await request.get(this.state.jsonURL);
+    this.setState({ data: res.body });
   }
 
   handleChange(event) {
@@ -66,19 +69,16 @@ class App extends Component {
       });
   }
 
-  async componentDidMount() {
-    const res = await request.get(JSON_URL);
-    this.setState({ data: res.body });
-  }
-
   render() {
     const { keyword, favourites, searchResult } = this.state;
     return (
       <div className="App">
         <div className="spacer" />
+
         <header className="appHeader">
           <p>Toronto Waste Lookup</p>
         </header>
+
         <form onSubmit={this.handleSubmit} className="searchWrapper">
           <input
             value={keyword}
@@ -90,6 +90,7 @@ class App extends Component {
             <FontAwesomeIcon icon={faSearch} />
           </button>
         </form>
+
         <div className="items">
           {searchResult.map(item => (
             <div className="item">
@@ -117,6 +118,7 @@ class App extends Component {
             </div>
           ))}
         </div>
+
         {favourites.length > 0 && (
           <div className="favouriteContainer">
             <div className="typography">
