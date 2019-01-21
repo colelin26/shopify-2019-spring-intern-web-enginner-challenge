@@ -39,13 +39,7 @@ class App extends Component {
     event.preventDefault();
     const { keyword } = this.state;
     const result = this.state.data.filter(item => {
-      if (
-        item.body.includes(keyword) ||
-        item.title.includes(keyword) ||
-        item.keywords.includes(keyword) ||
-        item.category.includes(keyword)
-      )
-        return true;
+      if (item.keywords.includes(keyword)) return true;
       return false;
     });
     this.setState({
