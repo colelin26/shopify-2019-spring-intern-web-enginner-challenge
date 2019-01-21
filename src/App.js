@@ -16,7 +16,15 @@ class App extends Component {
       searchResult: [],
       favourites: [],
       jsonURL:
-        "https://secure.toronto.ca/cc_sr_v1/data/swm_waste_wizard_APR?limit=1000"
+        "https://secure.toronto.ca/cc_sr_v1/data/swm_waste_wizard_APR?limit=1000",
+      ReactHtmlParserOptions: {
+        decodeEntities: true,
+        transform: function(node, index) {
+          if (node.attribs && node.attribs.style !== undefined) {
+            node.attribs.style = undefined;
+          }
+        }
+      }
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -63,7 +71,14 @@ class App extends Component {
   }
 
   render() {
-    const { keyword, favourites, searchResult } = this.state;
+    const {
+      keyword,
+      favourites,
+      searchResult,
+      ReactHtmlParserOptions
+    } = this.state;
+
+    // this.state.searchResult.forEach(item => console.log(decode(item.body)));
     return (
       <div className="App">
         <header className="appHeader">
@@ -101,10 +116,10 @@ class App extends Component {
                     <FontAwesomeIcon icon={faStar} />
                   </div>
                 )}
-                {ReactHtmlParser(decode(item.title))}
+                {ReactHtmlParser(decode(item.title), ReactHtmlParserOptions)}
               </div>
               <div className="itemDescription">
-                {ReactHtmlParser(decode(item.body))}
+                {ReactHtmlParser(decode(item.body), ReactHtmlParserOptions)}
               </div>
             </div>
           ))}
@@ -125,10 +140,13 @@ class App extends Component {
                     >
                       <FontAwesomeIcon icon={faStar} />
                     </div>
-                    {ReactHtmlParser(decode(item.title))}
+                    {ReactHtmlParser(
+                      decode(item.title),
+                      ReactHtmlParserOptions
+                    )}
                   </div>
                   <div className="itemDescription">
-                    {ReactHtmlParser(decode(item.body))}
+                    {ReactHtmlParser(decode(item.body), ReactHtmlParserOptions)}
                   </div>
                 </div>
               ))}
