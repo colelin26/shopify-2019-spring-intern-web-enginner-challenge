@@ -77,10 +77,11 @@ button {
   flex: 1;
   box-sizing: border-box;
   padding-top: 1em;
+  padding-left: 1em;
   justify-content: flex-start;
   align-content: flex-start;
   align-items: flex-start;
-  flex-basis: 38%;
+  flex-basis: 45%;
 }
 
 .itemDescription {
@@ -91,7 +92,7 @@ button {
   justify-content: flex-start;
   align-content: flex-start;
   align-items: flex-start;
-  flex-basis: 62%;
+  flex-basis: 55%;
 }
 
 .itemDescription * {
