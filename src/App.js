@@ -20,9 +20,15 @@ class App extends Component {
       ReactHtmlParserOptions: {
         decodeEntities: true,
         transform: function(node, index) {
-          console.log(node);
           if (node.attribs && node.attribs.style !== undefined) {
             node.attribs.style = undefined;
+          }
+          if (
+            node.type === "tag" &&
+            node.name === "p" &&
+            !node.children.length
+          ) {
+            return null;
           }
         }
       }
