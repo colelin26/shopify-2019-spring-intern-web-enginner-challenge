@@ -4,19 +4,19 @@ self.__precacheManifest = [
     "url": "/shopify-2019-spring-intern-web-enginner-challenge/static/js/runtime~main.7272d6a7.js"
   },
   {
-    "revision": "12fb75490cd4379be2d1",
-    "url": "/shopify-2019-spring-intern-web-enginner-challenge/static/js/main.12fb7549.chunk.js"
+    "revision": "158751ca309a22d6ecbd",
+    "url": "/shopify-2019-spring-intern-web-enginner-challenge/static/js/main.158751ca.chunk.js"
   },
   {
     "revision": "f83aead6454ab834124a",
     "url": "/shopify-2019-spring-intern-web-enginner-challenge/static/js/1.f83aead6.chunk.js"
   },
   {
-    "revision": "12fb75490cd4379be2d1",
-    "url": "/shopify-2019-spring-intern-web-enginner-challenge/static/css/main.e526c0f9.chunk.css"
+    "revision": "158751ca309a22d6ecbd",
+    "url": "/shopify-2019-spring-intern-web-enginner-challenge/static/css/main.4b75171d.chunk.css"
   },
   {
-    "revision": "81c6b1b354a939c6c21e83075fc834d3",
+    "revision": "46e7dcaecc378f5f67b4b3fe6a10d287",
     "url": "/shopify-2019-spring-intern-web-enginner-challenge/index.html"
   }
 ];
